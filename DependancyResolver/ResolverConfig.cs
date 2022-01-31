@@ -11,7 +11,7 @@ using Storages.Implementations;
 using Validator.Contract;
 using Validator.Implementations;
 
-#pragma warning disable SA3928 // The parameter name should be declared in the argument list.
+#pragma warning disable S3928 // The parameter name should be declared in the argument list.
 
 namespace DependencyResolver
 {

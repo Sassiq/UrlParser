@@ -20,7 +20,17 @@ namespace LoggerProviders
 
         public void Dispose()
         {
+            Dispose(true);
             GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                // managed objects
+            }
+            // unmanaged objects and resources
         }
     }
 }
