@@ -4,6 +4,8 @@ using System.IO;
 using System.Text;
 using NUnit.Framework;
 
+#pragma warning disable CA1707 //Underscores in method names
+
 namespace UrlParserTask.Tests
 {
     [TestFixture]
@@ -12,7 +14,7 @@ namespace UrlParserTask.Tests
         [Test]
         public void UrlParser_WorksWithoutExceptions_Test()
         {
-            new UrlParser().Run();
+            Assert.DoesNotThrow(() => new UrlParser().Run());
         }
 
         [Test]

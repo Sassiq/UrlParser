@@ -4,18 +4,17 @@ using System.Text;
 using NUnit.Framework;
 using Validator.Implementations;
 
+#pragma warning disable CA1707 //Underscores in method names
+
 namespace UrlParserTask.Tests.ValidatorTests
 {
     [TestFixture]
     public class UriValidatorTests
     {
-        [TestCase("https://gitlab.com/Sassiq/url-parser", ExpectedResult = true)]
-        [TestCase("https://habrahabr.ru/company/it-grad/blog/341486/", ExpectedResult = true)]
-        [TestCase("https://github.com/AnzhelikaKravchuk/2017-2018.MMF.BSU", ExpectedResult = true)]
-        [TestCase("https://github.com/AnzhelikaKravchuk?tab=repositories", ExpectedResult = true)]
-        public bool UriValidator_Tests(string uri)
+        [TestCaseSource(typeof(UriTestCaseSources), nameof(UriTestCaseSources.ValidUries))]
+        public void UriValidator_Tests(Uri uri)
         {
-            return new UriValidator().IsValid(new Uri(uri));
+            Assert.AreEqual(true, new UriValidator().IsValid(uri));
         }
     }
 }

@@ -20,6 +20,7 @@ namespace LoggerProviders
 
         public void Dispose()
         {
+            GC.SuppressFinalize(this);
         }
     }
 }
